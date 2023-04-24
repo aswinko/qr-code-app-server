@@ -191,3 +191,30 @@ exports.getCartItems = async (req, res) => {
     res.status(500).send();
   }
 };
+
+
+exports.removeCartItems = async (req, res) => {
+  try {
+    const { productId } = req.body.payload;
+    if (productId) {
+      await Cart.findOneAndUpdate(
+        { user: req.user._id },
+        {
+          $pull: {
+            cartItems: {
+              product: productId,
+            },
+          },
+        }
+      ).then((result, error) => {
+        if (error) return res.status(400).json({ error });
+        if (result) {
+          res.status(202).json({ result });
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send();
+  }
+};

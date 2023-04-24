@@ -43,7 +43,7 @@ const orderSchema = new Schema(
       {
         type: {
           type: String,
-          enum: ["ordered", "preparing", "delivered"],
+          enum: ["ordered", "preparing", "cancelled", "delivered"],
           default: "ordered",
         },
         date: {

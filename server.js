@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3002', 'https://aswinko.github.io/qr-app-frontend'],
+  origin: ['http://localhost:3000', 'http://localhost:3002'],
   credentials: true
 }));
 app.use(express.json());
