@@ -20,7 +20,7 @@ exports.initialData = async (req, res) => {
         })
 
     } catch (error) {
-        log.error(error);
+        console.log(error);
         res.status(500).send();
     }
 }
